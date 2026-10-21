@@ -10,6 +10,7 @@ const mainMenu = [
     { id: 3, menu: "NEW 요즘 대세 콘텐츠", path: "/new" },
     { id: 4, menu: "애니메이션", path: "/animate" },
     { id: 5, menu: "찜리스트", path: "/heart" },
+    { id: 6, menu: "스포츠", path: "/sports" },
 ]
 
 const familys = ["아빠", "엄마", "아들", "딸"];
@@ -41,7 +42,7 @@ export const Header = () => {
 
     return (
         <header
-            className={`fixed z-[10000] w-full py-5 ${isHome ? "bg-transparent" : "bg-green-500"
+            className={`${location.pathname === "/sports" ? "sports-header" : ""} fixed z-[10000] w-full py-5 ${isHome ? "bg-transparent" : "bg-green-500"
                 }`}
         >
             <div className="inner flex justify-between items-center">

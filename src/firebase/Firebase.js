@@ -16,7 +16,10 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const db = getFirestore(app);
+// Keep public pages available when Firebase has not been configured yet.
+const app = firebaseConfig.apiKey && firebaseConfig.projectId
+    ? initializeApp(firebaseConfig)
+    : null;
+export const auth = app ? getAuth(app) : null;
+export const db = app ? getFirestore(app) : null;
 export const googleProvider = new GoogleAuthProvider();
